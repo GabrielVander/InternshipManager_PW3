@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="InternshipManager_PW3:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>InternshipManager_PW3</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="InternshipManager_PW3.war">
+      <element id="artifact" artifact-name="InternshipManager_PW3:war exploded" />
+    </root>
+  </artifact>
+</component>
