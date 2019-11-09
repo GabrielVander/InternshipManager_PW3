@@ -2,16 +2,25 @@ package org.internship.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 @Entity
-public class Student {
+public class Student extends User {
   @Id
   private String id;
   private String name;
-  private Date birthdate;
+  private Date birthday;
   private String cpf;
   private String rg;
+  @OneToOne
+  private CV cv;
+  @OneToMany
+  private List<Report> reports = new ArrayList<>();
 
   public String getId() {
     return id;
@@ -29,12 +38,12 @@ public class Student {
     this.name = name;
   }
 
-  public Date getBirthdate() {
-    return birthdate;
+  public Date getBirthday() {
+    return birthday;
   }
 
-  public void setBirthdate(Date birthdate) {
-    this.birthdate = birthdate;
+  public void setBirthday(Date birthdate) {
+    this.birthday = birthdate;
   }
 
   public String getCpf() {
@@ -51,5 +60,21 @@ public class Student {
 
   public void setRg(String rg) {
     this.rg = rg;
+  }
+
+  public CV getCv() {
+    return cv;
+  }
+
+  public void setCv(CV cv) {
+    this.cv = cv;
+  }
+
+  public Iterator getReports() {
+    return reports.iterator();
+  }
+
+  public void addReports(Report report) {
+    this.reports.add(report);
   }
 }
