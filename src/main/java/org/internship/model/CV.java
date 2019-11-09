@@ -11,8 +11,8 @@ public class CV {
   @GeneratedValue
   private Long id;
   private String link;
-//  @OneToOne
-//  private Student student;
+  @OneToOne
+  private Student student;
 
   public Long getId() {
     return id;
@@ -28,5 +28,13 @@ public class CV {
 
   public void setLink(String link) {
     this.link = link;
+  }
+
+  public Student getStudent() {
+    return student;
+  }
+
+  public void setStudent(Student student) {
+    this.student = student;
   }
 }
