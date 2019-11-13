@@ -4,13 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 @Entity
-public class Student extends User {
+public class Student extends User implements Serializable {
   @Id
   private String id;
   private String name;

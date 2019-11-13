@@ -3,12 +3,13 @@ package org.internship.model;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 @Entity
-public class Vacancy {
+public class Vacancy implements Serializable {
   @Id
   @GeneratedValue
   private Long id;

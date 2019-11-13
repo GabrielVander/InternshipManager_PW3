@@ -5,9 +5,10 @@ import org.hibernate.annotations.Type;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Requirement {
+public class Requirement implements Serializable {
   @Id
   @GeneratedValue
   private Long id;
