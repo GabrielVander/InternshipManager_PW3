@@ -1,49 +1,57 @@
 package org.internship.DAO;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.util.List;
 
+@Repository
 public class HibernateDao<T extends Serializable> {
-  private Class<T> clazz;
+  private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hibernatepu");;
+  private EntityManager manager = entityManagerFactory.createEntityManager();
+  private Class<T> type;
 
-  @Autowired
-  SessionFactory sessionFactory;
-
-  public void setClazz(Class< T > clazzToSet){
-    this.clazz = clazzToSet;
+  public HibernateDao() {
   }
 
-  public T findOne(long id){
-    return (T) getCurrentSession().get(clazz, id);
+  public HibernateDao(Class<T> type) {
+    this.type = type;
   }
 
-  public List findAll() {
-    return getCurrentSession().createQuery("from " + clazz.getName()).list();
-  }
-
-  public T create(T entity) {
-    getCurrentSession().saveOrUpdate(entity);
+  public T save(T entity) {
+    EntityManager em = manager;
+    em.getTransaction().begin();
+    em.persist(entity);
+    em.getTransaction().commit();
     return entity;
   }
 
-  public T update(T entity) {
-    return (T) getCurrentSession().merge(entity);
+  public Boolean delete(T entity) {
+    try {
+      manager.remove(entity);
+    } catch (Exception ex) {
+      return false;
+    }
+    return true;
   }
 
-  public void delete(T entity) {
-    getCurrentSession().delete(entity);
+  public T edit(T entity) {
+    try{
+      return manager.merge(entity);
+    } catch(Exception ex) {
+      return null;
+    }
   }
 
-  public void deleteById(long entityId) {
-    T entity = findOne(entityId);
-    delete(entity);
+  public T find(Long id) {
+    return manager.find(type, id);
   }
 
-  protected Session getCurrentSession() {
-    return sessionFactory.getCurrentSession();
+  public List findAll(){
+    return manager.createQuery("Select t from " + type.getSimpleName() + " t").getResultList();
   }
 }
