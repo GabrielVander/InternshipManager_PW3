@@ -1,12 +1,13 @@
 package org.internship.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Internship {
+public class Internship implements Serializable {
   @Id
   @GeneratedValue
   private Long id;
