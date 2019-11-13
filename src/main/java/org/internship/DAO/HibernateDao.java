@@ -39,6 +39,15 @@ public class HibernateDao<T extends Serializable> {
     return true;
   }
 
+  public Boolean delete(Long id) {
+    try {
+      manager.remove(manager.find(type, id));
+    } catch (Exception ex) {
+      return false;
+    }
+    return true;
+  }
+
   public T edit(T entity) {
     try{
       return manager.merge(entity);
