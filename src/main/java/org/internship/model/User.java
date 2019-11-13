@@ -1,5 +1,8 @@
 package org.internship.model;
 
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class User {
   private String login;
   private String password;
