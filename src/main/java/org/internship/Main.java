@@ -17,9 +17,8 @@ import javax.persistence.Persistence;
 
 @RestController
 public class Main  {
-  @GetMapping("/ahhh")
+  @RequestMapping("/ahhh")
   public void ahhh(){
-    System.out.println("Hallo meinen Freuden!");
     EntityManagerFactory factory = Persistence.createEntityManagerFactory("hibernatepu");
     EntityManager manager = factory.createEntityManager();
     manager.getTransaction().begin();
