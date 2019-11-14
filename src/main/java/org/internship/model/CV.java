@@ -4,10 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import java.io.Serializable;
 
 @Entity
-public class CV implements Serializable {
+public class CV {
   @Id
   @GeneratedValue
   private Long id;

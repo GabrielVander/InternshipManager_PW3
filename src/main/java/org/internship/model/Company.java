@@ -4,13 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 @Entity
-public class Company extends User implements Serializable {
+public class Company extends User {
   @Id
   @GeneratedValue
   private Long id;
@@ -65,7 +64,7 @@ public class Company extends User implements Serializable {
     this.address = address;
   }
 
-  public Iterator getVacancies() {
+  public Iterator<Vacancy> getVacancies() {
     return vacancies.iterator();
   }
 
@@ -73,7 +72,7 @@ public class Company extends User implements Serializable {
     this.vacancies.add(vacancy);
   }
 
-  public Iterator getInternships() {
+  public Iterator<Internship> getInternships() {
     return internships.iterator();
   }
 
@@ -81,7 +80,7 @@ public class Company extends User implements Serializable {
     this.internships.add(internship);
   }
 
-  public Iterator getSupervisors() {
+  public Iterator<Supervisor> getSupervisors() {
     return supervisors.iterator();
   }
 
