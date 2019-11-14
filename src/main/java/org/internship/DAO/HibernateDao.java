@@ -24,6 +24,7 @@ public class HibernateDao<T> {
     manager.getTransaction().begin();
     manager.persist(entity);
     manager.getTransaction().commit();
+    manager.close();
     return entity;
   }
 
@@ -32,6 +33,7 @@ public class HibernateDao<T> {
       manager.getTransaction().begin();
       manager.remove(entity);
       manager.getTransaction().commit();
+      manager.close();
     } catch (Exception ex) {
       return false;
     }
@@ -43,6 +45,7 @@ public class HibernateDao<T> {
       manager.getTransaction().begin();
       manager.remove(manager.find(type, id));
       manager.getTransaction().commit();
+      manager.close();
     } catch (Exception ex) {
       return false;
     }
@@ -54,6 +57,7 @@ public class HibernateDao<T> {
       manager.getTransaction().begin();
       T result = manager.merge(entity);
       manager.getTransaction().commit();
+      manager.close();
       return result;
     } catch(Exception ex) {
       return null;
