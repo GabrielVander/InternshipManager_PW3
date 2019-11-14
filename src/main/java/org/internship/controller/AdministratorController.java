@@ -28,12 +28,13 @@ public class AdministratorController {
   }
 
   @PutMapping("/administrators/{id}")
-  Administrator editAdministrator(@RequestBody Administrator administrator) {
+  Administrator editAdministrator(@RequestBody Administrator administrator, @PathVariable Long id) {
+    administrator.setId(id);
     return dao.edit(administrator);
     //TODO: Implement error handling
   }
 
-  @DeleteMapping("/employees/{id}")
+  @DeleteMapping("/administrators/{id}")
   void deleteAdministrator(@PathVariable Long id) {
     dao.delete(id);
     //TODO: Implement error handling
