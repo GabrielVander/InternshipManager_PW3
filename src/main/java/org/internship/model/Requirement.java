@@ -1,19 +1,15 @@
 package org.internship.model;
 
-import org.hibernate.annotations.Type;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 @Entity
-public class Requirement implements Serializable {
+public class Requirement {
   @Id
   @GeneratedValue
   private Long id;
   private String title;
-//  @Type(type = "TEXT")
   private String description;
   private boolean mandatory;
 

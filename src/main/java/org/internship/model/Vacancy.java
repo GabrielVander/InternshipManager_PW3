@@ -1,20 +1,16 @@
 package org.internship.model;
 
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 @Entity
-public class Vacancy implements Serializable {
+public class Vacancy {
   @Id
   @GeneratedValue
   private Long id;
   private String title;
-//  @Type(type = "TEXT")
   private String description;
   @OneToMany
   private List<Requirement> requirements = new ArrayList<>();
@@ -47,7 +43,7 @@ public class Vacancy implements Serializable {
     this.description = description;
   }
 
-  public Iterator getRequirements() {
+  public Iterator<Requirement> getRequirements() {
     return requirements.iterator();
   }
 
@@ -63,7 +59,7 @@ public class Vacancy implements Serializable {
     this.company = company;
   }
 
-  public Iterator getApplicants() {
+  public Iterator<Student> getApplicants() {
     return applicants.iterator();
   }
 

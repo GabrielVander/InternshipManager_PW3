@@ -5,12 +5,10 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
-import java.io.Serializable;
 import java.util.List;
 
 @Repository
-public class HibernateDao<T extends Serializable> {
+public class HibernateDao<T> {
   private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hibernatepu");;
   private EntityManager manager = entityManagerFactory.createEntityManager();
   private Class<T> type;
@@ -60,7 +58,7 @@ public class HibernateDao<T extends Serializable> {
     return manager.find(type, id);
   }
 
-  public List findAll(){
-    return manager.createQuery("Select t from " + type.getSimpleName() + " t").getResultList();
+  public List<T> findAll(){
+    return (List<T>) manager.createQuery("Select t from " + type.getSimpleName() + " t").getResultList();
   }
 }
