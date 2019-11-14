@@ -39,8 +39,8 @@ public class AdministratorController {
   }
 
   @DeleteMapping("/administrators/{id}")
-  void deleteAdministrator(@PathVariable Long id) {
-    dao.delete(id);
+  Boolean deleteAdministrator(@PathVariable Long id) {
+    return dao.delete(id);
     //TODO: Implement error handling
   }
 }
