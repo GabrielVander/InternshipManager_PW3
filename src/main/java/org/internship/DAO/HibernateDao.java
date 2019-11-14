@@ -21,16 +21,17 @@ public class HibernateDao<T> {
   }
 
   public T save(T entity) {
-    EntityManager em = manager;
-    em.getTransaction().begin();
-    em.persist(entity);
-    em.getTransaction().commit();
+    manager.getTransaction().begin();
+    manager.persist(entity);
+    manager.getTransaction().commit();
     return entity;
   }
 
   public Boolean delete(T entity) {
     try {
+      manager.getTransaction().begin();
       manager.remove(entity);
+      manager.getTransaction().commit();
     } catch (Exception ex) {
       return false;
     }
@@ -39,7 +40,9 @@ public class HibernateDao<T> {
 
   public Boolean delete(Long id) {
     try {
+      manager.getTransaction().begin();
       manager.remove(manager.find(type, id));
+      manager.getTransaction().commit();
     } catch (Exception ex) {
       return false;
     }
@@ -48,7 +51,10 @@ public class HibernateDao<T> {
 
   public T edit(T entity) {
     try{
-      return manager.merge(entity);
+      manager.getTransaction().begin();
+      T result = manager.merge(entity);
+      manager.getTransaction().commit();
+      return result;
     } catch(Exception ex) {
       return null;
     }
