@@ -29,12 +29,14 @@ public class AdministratorController {
 
   @PutMapping("/administrators/{id}")
   Administrator editAdministrator(@RequestBody Administrator administrator, @PathVariable Long id) {
-    Administrator adm = dao.find(id);
-    adm.setPassword(administrator.getPassword());
-    adm.setEmail(administrator.getEmail());
-    adm.setLogin(administrator.getLogin());
-
-    return dao.edit(adm);
+//    Administrator adm = dao.find(id);
+//    adm.setPassword(administrator.getPassword());
+//    adm.setEmail(administrator.getEmail());
+//    adm.setLogin(administrator.getLogin());
+//
+//    return dao.edit(adm);
+    administrator.setId(id);
+    return dao.edit(administrator);
     //TODO: Implement error handling
   }
 
