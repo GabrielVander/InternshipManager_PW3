@@ -8,15 +8,15 @@ import javax.persistence.Persistence;
 import java.util.List;
 
 @Repository
-public class HibernateDao<T> {
+public class GenericDAO<T> {
   private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hibernatepu");;
   private EntityManager manager = entityManagerFactory.createEntityManager();
   private Class<T> type;
 
-  public HibernateDao() {
+  public GenericDAO() {
   }
 
-  public HibernateDao(Class<T> type) {
+  public GenericDAO(Class<T> type) {
     this.type = type;
   }
 
