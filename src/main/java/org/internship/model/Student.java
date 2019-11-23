@@ -1,9 +1,6 @@
 package org.internship.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -12,7 +9,9 @@ import java.util.List;
 @Entity
 public class Student extends User{
   @Id
-  private String id;
+  @GeneratedValue
+  private long id;
+  private String record;
   private String name;
   private Date birthday;
   private String cpf;
@@ -22,12 +21,20 @@ public class Student extends User{
   @OneToMany
   private List<Report> reports = new ArrayList<>();
 
-  public String getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(long id) {
     this.id = id;
+  }
+
+  public String getRecord() {
+    return record;
+  }
+
+  public void setRecord(String record) {
+    this.record = record;
   }
 
   public String getName() {
