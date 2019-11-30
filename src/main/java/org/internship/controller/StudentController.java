@@ -22,20 +22,20 @@ public class StudentController {
   }
 
   @GetMapping("/students/{id}")
-  Student one(@PathVariable Long id) {
+  Student one(@PathVariable int id) {
     return dao.find(id);
     //TODO: Implement error handling
   }
 
   @PutMapping("/students/{id}")
-  Student editStudent(@RequestBody Student student, @PathVariable Long id) {
+  Student editStudent(@RequestBody Student student, @PathVariable int id) {
     student.setId(id);
     return dao.edit(student);
     //TODO: Implement error handling
   }
 
   @DeleteMapping("/students/{id}")
-  Boolean deleteStudent(@PathVariable Long id) {
+  Boolean deleteStudent(@PathVariable int id) {
     return dao.delete(id);
     //TODO: Implement error handling
   }

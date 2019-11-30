@@ -22,20 +22,20 @@ public class SupervisorController {
   }
 
   @GetMapping("/supervisors/{id}")
-  Supervisor one(@PathVariable Long id) {
+  Supervisor one(@PathVariable int id) {
     return dao.find(id);
     //TODO: Implement error handling
   }
 
   @PutMapping("/supervisors/{id}")
-  Supervisor editSupervisor(@RequestBody Supervisor supervisor, @PathVariable Long id) {
+  Supervisor editSupervisor(@RequestBody Supervisor supervisor, @PathVariable int id) {
     supervisor.setId(id);
     return dao.edit(supervisor);
     //TODO: Implement error handling
   }
 
   @DeleteMapping("/supervisors/{id}")
-  Boolean deleteSupervisor(@PathVariable Long id) {
+  Boolean deleteSupervisor(@PathVariable int id) {
     return dao.delete(id);
     //TODO: Implement error handling
   }

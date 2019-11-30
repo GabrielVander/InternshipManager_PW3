@@ -22,13 +22,13 @@ public class AdministratorController {
   }
 
   @GetMapping("/administrators/{id}")
-  Administrator one(@PathVariable Long id) {
+  Administrator one(@PathVariable int id) {
     return dao.find(id);
     //TODO: Implement error handling
   }
 
   @PutMapping("/administrators/{id}")
-  Administrator editAdministrator(@RequestBody Administrator administrator, @PathVariable Long id) {
+  Administrator editAdministrator(@RequestBody Administrator administrator, @PathVariable int id) {
 //    Administrator adm = dao.find(id);
 //    adm.setPassword(administrator.getPassword());
 //    adm.setEmail(administrator.getEmail());
@@ -41,7 +41,7 @@ public class AdministratorController {
   }
 
   @DeleteMapping("/administrators/{id}")
-  Boolean deleteAdministrator(@PathVariable Long id) {
+  Boolean deleteAdministrator(@PathVariable int id) {
     return dao.delete(id);
     //TODO: Implement error handling
   }

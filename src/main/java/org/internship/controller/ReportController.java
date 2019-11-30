@@ -22,20 +22,20 @@ public class ReportController {
   }
 
   @GetMapping("/reports/{id}")
-  Report one(@PathVariable Long id) {
+  Report one(@PathVariable int id) {
     return dao.find(id);
     //TODO: Implement error handling
   }
 
   @PutMapping("/reports/{id}")
-  Report editReport(@RequestBody Report report, @PathVariable Long id) {
+  Report editReport(@RequestBody Report report, @PathVariable int id) {
     report.setId(id);
     return dao.edit(report);
     //TODO: Implement error handling
   }
 
   @DeleteMapping("/reports/{id}")
-  Boolean deleteReport(@PathVariable Long id) {
+  Boolean deleteReport(@PathVariable int id) {
     return dao.delete(id);
     //TODO: Implement error handling
   }

@@ -7,8 +7,8 @@ import javax.persistence.Id;
 @Entity
 public class Administrator extends User {
   @Id
-  @GeneratedValue()
-  public Long id;
+  @GeneratedValue
+  public int id;
 
   public Administrator(String login, String password, String email) {
     this.setLogin(login);
@@ -20,11 +20,11 @@ public class Administrator extends User {
   }
 
 
-  public Long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(int id) {
     this.id = id;
   }
 }

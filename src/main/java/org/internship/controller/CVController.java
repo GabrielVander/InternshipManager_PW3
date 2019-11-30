@@ -22,20 +22,20 @@ public class CVController {
   }
 
   @GetMapping("/cvs/{id}")
-  CV one(@PathVariable Long id) {
+  CV one(@PathVariable int id) {
     return dao.find(id);
     //TODO: Implement error handling
   }
 
   @PutMapping("/cvs/{id}")
-  CV editCV(@RequestBody CV cv, @PathVariable Long id) {
+  CV editCV(@RequestBody CV cv, @PathVariable int id) {
     cv.setId(id);
     return dao.edit(cv);
     //TODO: Implement error handling
   }
 
   @DeleteMapping("/cvs/{id}")
-  Boolean deleteCV(@PathVariable Long id) {
+  Boolean deleteCV(@PathVariable int id) {
     return dao.delete(id);
     //TODO: Implement error handling
   }

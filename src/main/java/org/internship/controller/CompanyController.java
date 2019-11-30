@@ -23,20 +23,20 @@ public class CompanyController {
   }
 
   @GetMapping("/companies/{id}")
-  Company one(@PathVariable Long id) {
+  Company one(@PathVariable int id) {
     return dao.find(id);
     //TODO: Implement error handling
   }
 
   @PutMapping("/companies/{id}")
-  Company editCompany(@RequestBody Company company, @PathVariable Long id) {
+  Company editCompany(@RequestBody Company company, @PathVariable int id) {
     company.setId(id);
     return dao.edit(company);
     //TODO: Implement error handling
   }
 
   @DeleteMapping("/companies/{id}")
-  Boolean deleteCompany(@PathVariable Long id) {
+  Boolean deleteCompany(@PathVariable int id) {
     return dao.delete(id);
     //TODO: Implement error handling
   }

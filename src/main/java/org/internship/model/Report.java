@@ -9,16 +9,16 @@ import javax.persistence.ManyToOne;
 public class Report {
   @Id
   @GeneratedValue
-  private Long id;
+  private int id;
   private String link;
   @ManyToOne
   private Internship internship;
 
-  public Long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(int id) {
     this.id = id;
   }
 

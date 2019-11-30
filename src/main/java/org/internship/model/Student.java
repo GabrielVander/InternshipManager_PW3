@@ -10,7 +10,7 @@ import java.util.List;
 public class Student extends User{
   @Id
   @GeneratedValue
-  private long id;
+  private int id;
   private String record;
   private String name;
   private Date birthday;
@@ -21,11 +21,11 @@ public class Student extends User{
   @OneToMany
   private List<Report> reports = new ArrayList<>();
 
-  public long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(int id) {
     this.id = id;
   }
 

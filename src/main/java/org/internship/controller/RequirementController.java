@@ -22,20 +22,20 @@ public class RequirementController {
   }
 
   @GetMapping("/requirements/{id}")
-  Requirement one(@PathVariable Long id) {
+  Requirement one(@PathVariable int id) {
     return dao.find(id);
     //TODO: Implement error handling
   }
 
   @PutMapping("/requirements/{id}")
-  Requirement editRequirement(@RequestBody Requirement requirement, @PathVariable Long id) {
+  Requirement editRequirement(@RequestBody Requirement requirement, @PathVariable int id) {
     requirement.setId(id);
     return dao.edit(requirement);
     //TODO: Implement error handling
   }
 
   @DeleteMapping("/requirements/{id}")
-  Boolean deleteRequirement(@PathVariable Long id) {
+  Boolean deleteRequirement(@PathVariable int id) {
     return dao.delete(id);
     //TODO: Implement error handling
   }

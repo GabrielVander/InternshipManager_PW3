@@ -9,7 +9,7 @@ import java.util.List;
 public class Internship {
   @Id
   @GeneratedValue
-  private Long id;
+  private int id;
   private String description;
   private Date startDate;
   private Date endDate;
@@ -20,11 +20,11 @@ public class Internship {
   @ManyToOne
   private Supervisor supervisor;
 
-  public Long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(int id) {
     this.id = id;
   }
 

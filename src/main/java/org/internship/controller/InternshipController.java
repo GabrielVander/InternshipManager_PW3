@@ -22,20 +22,20 @@ public class InternshipController {
   }
 
   @GetMapping("/internships/{id}")
-  Internship one(@PathVariable Long id) {
+  Internship one(@PathVariable int id) {
     return dao.find(id);
     //TODO: Implement error handling
   }
 
   @PutMapping("/internships/{id}")
-  Internship editInternship(@RequestBody Internship internship, @PathVariable Long id) {
+  Internship editInternship(@RequestBody Internship internship, @PathVariable int id) {
     internship.setId(id);
     return dao.edit(internship);
     //TODO: Implement error handling
   }
 
   @DeleteMapping("/internships/{id}")
-  Boolean deleteInternship(@PathVariable Long id) {
+  Boolean deleteInternship(@PathVariable int id) {
     return dao.delete(id);
     //TODO: Implement error handling
   }

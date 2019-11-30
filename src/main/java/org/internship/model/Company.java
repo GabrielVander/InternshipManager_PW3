@@ -12,7 +12,7 @@ import java.util.List;
 public class Company extends User {
   @Id
   @GeneratedValue
-  private Long id;
+  private int id;
   private String cpnj;
   private String email;
   private String name;
@@ -24,11 +24,11 @@ public class Company extends User {
   @OneToMany
   private List<Supervisor> supervisors = new ArrayList<>();
 
-  public Long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(int id) {
     this.id = id;
   }
 

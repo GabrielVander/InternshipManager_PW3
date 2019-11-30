@@ -22,20 +22,20 @@ public class VancancyController {
   }
 
   @GetMapping("/vacancies/{id}")
-  Vacancy one(@PathVariable Long id) {
+  Vacancy one(@PathVariable int id) {
     return dao.find(id);
     //TODO: Implement error handling
   }
 
   @PutMapping("/vacancies/{id}")
-  Vacancy editVacancy(@RequestBody Vacancy vacancy, @PathVariable Long id) {
+  Vacancy editVacancy(@RequestBody Vacancy vacancy, @PathVariable int id) {
     vacancy.setId(id);
     return dao.edit(vacancy);
     //TODO: Implement error handling
   }
 
   @DeleteMapping("/vacancies/{id}")
-  Boolean deleteVacancy(@PathVariable Long id) {
+  Boolean deleteVacancy(@PathVariable int id) {
     return dao.delete(id);
     //TODO: Implement error handling
   }
