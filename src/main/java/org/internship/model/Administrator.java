@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Administrator extends User {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  private int id;
 
   public Administrator(String login, String password, String email) {
     this.setLogin(login);
@@ -21,11 +21,11 @@ public class Administrator extends User {
   }
 
 
-  public Long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(int id) {
     this.id = id;
   }
 }

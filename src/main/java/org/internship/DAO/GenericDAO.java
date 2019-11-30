@@ -42,7 +42,7 @@ public class GenericDAO<T> {
     return true;
   }
 
-  public Boolean delete(Long id) {
+  public Boolean delete(int id) {
     try {
       EntityManager em = manager;
       em.getTransaction().begin();
