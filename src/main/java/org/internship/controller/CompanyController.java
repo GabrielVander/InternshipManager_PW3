@@ -28,12 +28,12 @@ public class CompanyController {
     //TODO: Implement error handling
   }
 
-  @PutMapping("/companies/{id}")
-  Company editCompany(@RequestBody Company company, @PathVariable int id) {
-    company.setId(id);
-    return dao.edit(company);
-    //TODO: Implement error handling
-  }
+//  @PutMapping("/companies/{id}")
+//  Company editCompany(@RequestBody Company company, @PathVariable int id) {
+//    company.setId(id);
+//    return dao.edit(company);
+//    //TODO: Implement error handling
+//  }
 
   @DeleteMapping("/companies/{id}")
   Boolean deleteCompany(@PathVariable int id) {
