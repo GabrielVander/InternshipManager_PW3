@@ -122,10 +122,9 @@
         <configuration>
           <assembleDirectory>target</assembleDirectory>
           <programs>
-            <program>
-              <mainClass>launch.Main</mainClass>
-              <name>webapp</name>
-            </program>
+            <processTypes>
+              <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+            </processTypes>
           </programs>
         </configuration>
         <executions>
