@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class AdministratorController {
   private AdministratorDAO dao = new AdministratorDAO();
 
@@ -15,7 +16,6 @@ public class AdministratorController {
     return (List<Administrator>) dao.findAll();
   }
 
-  @CrossOrigin
   @PostMapping("/administrators")
   public Administrator newAdministrator(@RequestBody Administrator newAdministrator){
     return dao.save(newAdministrator);
