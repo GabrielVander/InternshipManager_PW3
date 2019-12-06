@@ -20,6 +20,9 @@
 <a href = "./registerCompany">
     <button>Cadastrar Empresa</button>
 </a>
+<a href = "./login">
+    <button>Login</button>
+</a>
 
 </body>
 </html>

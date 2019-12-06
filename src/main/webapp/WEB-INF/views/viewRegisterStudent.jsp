@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1> Registrar Estudante</h1>
-	<form action="./students" method = "post">
+	<form action="./newStudent" method = "post">
 		<span> Nome:</span> <input type = "text" name = "name" id = "name" placeholder = "Digite seu nome"/> <br>
 		<span> CPF:</span> <input type = "text" name = "cpf" id = "cpf" placeholder = "Digite seu CPF"/> <br>
 		<span> RG:</span> <input type = "text" name = "rg" id="rg" placeholder = "Digite seu RG"/> <br>

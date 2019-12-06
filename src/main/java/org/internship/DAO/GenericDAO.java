@@ -1,5 +1,6 @@
 package org.internship.DAO;
 
+import org.internship.model.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -8,7 +9,7 @@ import javax.persistence.Persistence;
 import java.util.List;
 
 @Repository
-public class GenericDAO<T> {
+public class GenericDAO<T extends User> {
   private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hibernatepu");;
   private EntityManager manager = entityManagerFactory.createEntityManager();
   private Class<T> type;
@@ -67,6 +68,11 @@ public class GenericDAO<T> {
     } catch(Exception ex) {
       return null;
     }
+  }
+
+  public T checkUser(User entity){
+    return (T) manager.createQuery("SELECT t FROM " + type.getSimpleName() +
+        " t WHERE t.email = " + entity.getEmail() + " AND t.password = " + entity.getPassword() + ";").getSingleResult();
   }
 
   public T find(int id) {

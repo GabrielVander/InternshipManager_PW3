@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1> Registrar Empresa</h1>
-	<form action = "./companies" method = "post">
+	<form action = "./newCompany" method = "post">
 		<span> Nome:</span> <input type = "text" name = "name" placeholder = "Digite o nome "/> <br>
 		<span> CNPJ:</span> <input type = "text" name = "cnpj" placeholder = "Digite o CNPJ "/> <br>
 		<span> E-mail:</span> <input type = "email" name = "email" placeholder = "Digite o email"/> <br>

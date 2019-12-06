@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1> Registrar Supervisor</h1>
-	<form action = "./supervisors" method = "post">
+	<form action = "./newSupervisor" method = "post">
 		<span> CPF:</span> <input type = "text" name = "cpf" placeholder = "Digite o CPF"/> <br>
 		<input type = 'submit' value = 'Enviar dados'/>
 	</form>
