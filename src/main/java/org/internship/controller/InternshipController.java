@@ -17,7 +17,7 @@ public class InternshipController {
   }
 
   @PostMapping("/internships")
-  public Internship newInternship(@RequestBody Internship newInternship){
+  public Internship newInternship(Internship newInternship){
     return dao.save(newInternship);
     //TODO: Implement error handling
   }
@@ -29,7 +29,7 @@ public class InternshipController {
   }
 
   @PutMapping("/internships/{id}")
-  Internship editInternship(@RequestBody Internship internship, @PathVariable int id) {
+  Internship editInternship(Internship internship, @PathVariable int id) {
     internship.setId(id);
     return dao.edit(internship);
     //TODO: Implement error handling

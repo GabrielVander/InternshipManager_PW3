@@ -2,12 +2,13 @@ package org.internship.controller;
 
 import org.internship.DAO.AdministratorDAO;
 import org.internship.model.Administrator;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
 @CrossOrigin
+@RestController
 public class AdministratorController {
   private AdministratorDAO dao = new AdministratorDAO();
 
@@ -16,8 +17,8 @@ public class AdministratorController {
     return (List<Administrator>) dao.findAll();
   }
 
-  @PostMapping("/administrators")
-  public Administrator newAdministrator(@RequestBody Administrator newAdministrator){
+  @PostMapping(value="/administrators", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public Administrator newAdministrator(Administrator newAdministrator){
     return dao.save(newAdministrator);
     //TODO: Implement error handling
   }
@@ -28,8 +29,8 @@ public class AdministratorController {
     //TODO: Implement error handling
   }
 
-  @PutMapping("/administrators/{id}")
-  Administrator editAdministrator(@RequestBody Administrator administrator, @PathVariable int id) {
+  @PutMapping(value="/administrators/{id}")
+  Administrator editAdministrator(Administrator administrator, @PathVariable int id) {
 //    Administrator adm = dao.find(id);
 //    adm.setPassword(administrator.getPassword());
 //    adm.setEmail(administrator.getEmail());

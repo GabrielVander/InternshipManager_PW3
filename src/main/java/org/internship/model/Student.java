@@ -1,6 +1,8 @@
 package org.internship.model;
 
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -49,8 +51,10 @@ public class Student extends User{
     return birthday;
   }
 
-  public void setBirthday(Date birthdate) {
-    this.birthday = birthdate;
+  public void setBirthday(String birthdate) throws ParseException {
+    System.out.println(birthdate);
+    this.birthday = new SimpleDateFormat("yyyy-mm-dd").parse(birthdate);
+    System.out.println(this.birthday);
   }
 
   public String getCpf() {

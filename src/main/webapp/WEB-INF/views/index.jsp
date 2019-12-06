@@ -1,27 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Contacts List</title>
+    <title>Sistema de controle de est?gio</title>
 </head>
 <body>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Email</th>
-    </tr>
-    <c:forEach items="${ contacts }" var="contact">
-        <tr>
-            <td>${ contact.id }</td>
-            <td>${ contact.name }</td>
-            <td>${ contact.email }</td>
-        </tr>
-    </c:forEach>
-</table>
+<h1> Sistema de controle de est?gio</h1>
+
+<a href="./registerStudent">
+    <button>Cadastrar Aluno</button>
+</a>
+<br>
+<a href="./registerSupervisor">
+    <button>Cadastrar Supervisor</button>
+</a>
+<br>
+<a href = "./registerCompany">
+    <button>Cadastrar Empresa</button>
+</a>
+
 </body>
 </html>

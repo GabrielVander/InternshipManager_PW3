@@ -17,7 +17,7 @@ public class SupervisorController {
   }
 
   @PostMapping("/supervisors")
-  public Supervisor newSupervisor(@RequestBody Supervisor newSupervisor){
+  public Supervisor newSupervisor(Supervisor newSupervisor){
     return dao.save(newSupervisor);
     //TODO: Implement error handling
   }

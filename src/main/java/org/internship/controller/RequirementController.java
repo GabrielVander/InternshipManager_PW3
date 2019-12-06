@@ -17,7 +17,7 @@ public class RequirementController {
   }
 
   @PostMapping("/requirements")
-  public Requirement newRequirement(@RequestBody Requirement newRequirement){
+  public Requirement newRequirement(Requirement newRequirement){
     return dao.save(newRequirement);
     //TODO: Implement error handling
   }
@@ -29,7 +29,7 @@ public class RequirementController {
   }
 
   @PutMapping("/requirements/{id}")
-  Requirement editRequirement(@RequestBody Requirement requirement, @PathVariable int id) {
+  Requirement editRequirement(Requirement requirement, @PathVariable int id) {
     requirement.setId(id);
     return dao.edit(requirement);
     //TODO: Implement error handling

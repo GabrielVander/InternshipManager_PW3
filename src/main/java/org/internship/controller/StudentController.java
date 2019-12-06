@@ -2,12 +2,12 @@ package org.internship.controller;
 
 import org.internship.DAO.StudentDAO;
 import org.internship.model.Student;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
-@RestController
+@Controller
 public class StudentController {
   private StudentDAO dao = new StudentDAO();
 
@@ -17,7 +17,8 @@ public class StudentController {
   }
 
   @PostMapping("/students")
-  public Student newStudent(@RequestBody Student newStudent){
+  public Student newStudent(Student newStudent){
+    System.out.println(newStudent.getName());
     return dao.save(newStudent);
     //TODO: Implement error handling
   }
@@ -29,7 +30,7 @@ public class StudentController {
   }
 
   @PutMapping("/students/{id}")
-  Student editStudent(@RequestBody Student student, @PathVariable int id) {
+  Student editStudent(Student student, @PathVariable int id) {
     student.setId(id);
     return dao.edit(student);
     //TODO: Implement error handling

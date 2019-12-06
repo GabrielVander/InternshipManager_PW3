@@ -18,7 +18,7 @@ public class CompanyController {
   }
 
   @PostMapping("/companies")
-  public Company newCompany(@RequestBody Company newCompany){
+  public Company newCompany(Company newCompany){
     return dao.save(newCompany);
     //TODO: Implement error handling
   }

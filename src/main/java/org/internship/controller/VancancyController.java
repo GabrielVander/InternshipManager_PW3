@@ -17,7 +17,7 @@ public class VancancyController {
   }
 
   @PostMapping("/vacancies")
-  public Vacancy newVacancy(@RequestBody Vacancy newVacancy){
+  public Vacancy newVacancy(Vacancy newVacancy){
     return dao.save(newVacancy);
     //TODO: Implement error handling
   }
@@ -29,7 +29,7 @@ public class VancancyController {
   }
 
   @PutMapping("/vacancies/{id}")
-  Vacancy editVacancy(@RequestBody Vacancy vacancy, @PathVariable int id) {
+  Vacancy editVacancy(Vacancy vacancy, @PathVariable int id) {
     vacancy.setId(id);
     return dao.edit(vacancy);
     //TODO: Implement error handling

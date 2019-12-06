@@ -17,7 +17,7 @@ public class ReportController {
   }
 
   @PostMapping("/reports")
-  public Report newReport(@RequestBody Report newReport){
+  public Report newReport(Report newReport){
     return dao.save(newReport);
     //TODO: Implement error handling
   }
@@ -29,7 +29,7 @@ public class ReportController {
   }
 
   @PutMapping("/reports/{id}")
-  Report editReport(@RequestBody Report report, @PathVariable int id) {
+  Report editReport(Report report, @PathVariable int id) {
     report.setId(id);
     return dao.edit(report);
     //TODO: Implement error handling

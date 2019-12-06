@@ -14,7 +14,7 @@ public class Company extends User {
 //  @GeneratedValue
 //  private int id;
   @Id
-  private String cpnj;
+  private String cnpj;
   private String name;
   private String address;
   @OneToMany
@@ -32,12 +32,12 @@ public class Company extends User {
 //    this.id = id;
 //  }
 
-  public String getCpnj() {
-    return cpnj;
+  public String getCnpj() {
+    return cnpj;
   }
 
-  public void setCpnj(String cpnj) {
-    this.cpnj = cpnj;
+  public void setCnpj(String cnpj) {
+    this.cnpj = cnpj;
   }
 
   public String getName() {
